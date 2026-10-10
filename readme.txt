@@ -124,6 +124,7 @@ Yes. Clearqo has a REST API and signed webhooks for any website, app or bot. See
 
 = 1.2.1 =
 * Fix: when an order was already on hold for review, the note explaining an under-payment or a currency mismatch was not shown. It is now always added, once.
+* Improved: the Checkout block reads its settings with WooCommerce's getPaymentMethodData() (falls back on older versions).
 
 = 1.2.0 =
 * New: support for the WooCommerce Cart & Checkout blocks.

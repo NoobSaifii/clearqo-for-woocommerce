@@ -5,6 +5,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [1.2.1] - 2026-10-10
 
+### Changed
+- The Checkout block reads its settings with WooCommerce's `getPaymentMethodData()`, falling back to the older `clearqo_data` setting.
+
 ### Fixed
 - When an order was already on hold for review, the note explaining an under-payment or a currency mismatch was not shown (WooCommerce drops the note of a same-status update). It is now always added, and only once even if webhooks repeat.
 

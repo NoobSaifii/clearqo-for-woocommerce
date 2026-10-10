@@ -2,7 +2,9 @@
 ( function () {
 	'use strict';
 	var registry = window.wc && window.wc.wcBlocksRegistry;
-	var settings = window.wc && window.wc.wcSettings ? window.wc.wcSettings.getSetting( 'clearqo_data', {} ) : {};
+	var wcSettings = window.wc && window.wc.wcSettings;
+	// Newer WooCommerce: getPaymentMethodData(); older versions: the clearqo_data setting.
+	var settings = ! wcSettings ? {} : ( wcSettings.getPaymentMethodData ? wcSettings.getPaymentMethodData( 'clearqo', {} ) : wcSettings.getSetting( 'clearqo_data', {} ) ) || {};
 	if ( ! registry || ! window.wp || ! window.wp.element ) {
 		return;
 	}
