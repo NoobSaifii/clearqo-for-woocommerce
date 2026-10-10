@@ -3,7 +3,7 @@
  * Plugin Name:          Clearqo for WooCommerce
  * Plugin URI:           https://clearqo.com/woocommerce/
  * Description:          Accept USDT in WooCommerce with Binance Pay, TRC20 and BEP20. Customers pay straight into your own Binance account and every payment is verified automatically. Works with stores in any currency and with TeraWallet top-ups.
- * Version:              1.2.0
+ * Version:              1.2.1
  * Author:               Clearqo
  * Author URI:           https://clearqo.com/
  * License:              GPLv2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'CLQWC_ID', 'clearqo' );
-define( 'CLQWC_VERSION', '1.2.0' );
+define( 'CLQWC_VERSION', '1.2.1' );
 
 /* ---------- settings / API client ---------- */
 
@@ -99,6 +99,19 @@ function clqwc_apply( $order, $inv ) {
 }
 
 /**
+ * Puts the order on hold with a visible note. WooCommerce drops the note of a same-status update
+ * (e.g. the order is already on hold for review), so it is added explicitly — once, even if webhooks repeat.
+ */
+function clqwc_hold( $order, $note ) {
+	if ( $order->get_meta( '_clqwc_hold_note' ) !== $note ) {
+		$order->update_meta_data( '_clqwc_hold_note', $note );
+		$order->add_order_note( $note );
+	}
+	$order->set_status( 'on-hold' );
+	$order->save();
+}
+
+/**
  * Applies the AUTHORITATIVE invoice (fetched from the API, never from a webhook body) to the order.
  * Idempotent: safe to call many times.
  */
@@ -113,7 +126,7 @@ function clqwc_apply_now( $order, $inv ) {
 		$usd  = array( 'USD', 'USDT' );
 		if ( $pcur !== $cur && ! ( in_array( $cur, $usd, true ) && in_array( $pcur, $usd, true ) ) ) {
 			/* translators: 1: invoice currency, 2: order currency */
-			$order->update_status( 'on-hold', sprintf( __( 'Clearqo: invoice currency %1$s does not match the order currency %2$s. Check before fulfilling.', 'clearqo-for-woocommerce' ), $pcur, $cur ) );
+			clqwc_hold( $order, sprintf( __( 'Clearqo: invoice currency %1$s does not match the order currency %2$s. Check before fulfilling.', 'clearqo-for-woocommerce' ), $pcur, $cur ) );
 			return;
 		}
 		// Amount received, expressed in the order's currency at the rate locked on the invoice.
@@ -137,8 +150,7 @@ function clqwc_apply_now( $order, $inv ) {
 			$order->calculate_totals( false );
 		} elseif ( (float) $paid + 0.000001 < (float) $order->get_total( 'edit' ) ) {
 			/* translators: %s: amount received */
-			$order->update_status( 'on-hold', sprintf( __( 'Clearqo: received %s, less than the order total. Check before fulfilling.', 'clearqo-for-woocommerce' ), $label ) );
-			$order->save();
+			clqwc_hold( $order, sprintf( __( 'Clearqo: received %s, less than the order total. Check before fulfilling.', 'clearqo-for-woocommerce' ), $label ) );
 			return;
 		}
 		$order->update_meta_data( '_clqwc_verified', 'yes' );

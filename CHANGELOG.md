@@ -3,6 +3,11 @@
 All notable changes to **Clearqo for WooCommerce** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses [Semantic Versioning](https://semver.org/).
 
+## [1.2.1] - 2026-10-10
+
+### Fixed
+- When an order was already on hold for review, the note explaining an under-payment or a currency mismatch was not shown (WooCommerce drops the note of a same-status update). It is now always added, and only once even if webhooks repeat.
+
 ## [1.2.0] - 2026-10-10
 
 ### Added
@@ -31,4 +36,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Signed webhooks with server-side re-verification of every invoice.
 - TeraWallet top-ups credited with exactly the amount received.
 
+[1.2.1]: https://github.com/NoobSaifii/clearqo-for-woocommerce/releases/tag/v1.2.1
 [1.2.0]: https://github.com/NoobSaifii/clearqo-for-woocommerce/releases/tag/v1.2.0
