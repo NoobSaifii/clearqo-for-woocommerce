@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve **Clearqo for WooCommerce**!
+Thanks for helping improve **Clearqo for WooCommerce**! By taking part you agree to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Reporting bugs
 
