@@ -1,0 +1,60 @@
+name: Bug report
+description: Something in the plugin isn't working as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug.
+        **Never paste API keys, webhook secrets or customer data here.** For security problems, use [Report a vulnerability](https://github.com/NoobSaifii/clearqo-for-woocommerce/security/advisories/new) instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to the checkout…
+        2. Choose "USDT — Binance Pay / TRC20 / BEP20"…
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: order-notes
+    attributes:
+      label: Order notes
+      description: Copy the notes Clearqo added to the affected order (WooCommerce → Orders → the order → Order notes).
+      render: text
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: "1.2.0"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: WordPress / WooCommerce / PHP versions
+      placeholder: "WordPress 7.1, WooCommerce 11.2, PHP 8.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: checkout
+    attributes:
+      label: Checkout type
+      options:
+        - Checkout block
+        - Classic checkout (shortcode)
+        - Not sure
+  - type: checkboxes
+    id: terawallet
+    attributes:
+      label: Extras
+      options:
+        - label: The order is a TeraWallet top-up

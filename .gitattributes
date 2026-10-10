@@ -1,0 +1,16 @@
+# Normalise line endings; keep binaries untouched.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.zip binary
+
+# Development files are not shipped in the plugin zip (git archive / GitHub releases).
+/.github           export-ignore
+/docs              export-ignore
+/.gitattributes    export-ignore
+/.gitignore        export-ignore
+/.editorconfig     export-ignore
+/README.md         export-ignore
+/CHANGELOG.md      export-ignore
+/CONTRIBUTING.md   export-ignore
+/SECURITY.md       export-ignore

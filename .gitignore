@@ -1,0 +1,9 @@
+# Build output
+*.zip
+/build/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
