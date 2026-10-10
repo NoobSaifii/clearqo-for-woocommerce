@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup help & account questions
+    url: https://clearqo.com/developers/#woocommerce
+    about: Step-by-step setup guide. For account or billing questions, email support@clearqo.com.
+  - name: Report a security vulnerability
+    url: https://github.com/NoobSaifii/clearqo-for-woocommerce/security/advisories/new
+    about: Please report security issues privately, never in a public issue.
+  - name: Clearqo website
+    url: https://clearqo.com/woocommerce/
+    about: Features, pricing and a free account.
