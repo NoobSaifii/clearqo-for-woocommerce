@@ -4,7 +4,7 @@ Tags: usdt, binance pay, crypto payments, payment gateway, cryptocurrency
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -122,6 +122,9 @@ Yes. Clearqo has a REST API and signed webhooks for any website, app or bot. See
 
 == Changelog ==
 
+= 1.2.1 =
+* Fix: when an order was already on hold for review, the note explaining an under-payment or a currency mismatch was not shown. It is now always added, once.
+
 = 1.2.0 =
 * New: support for the WooCommerce Cart & Checkout blocks.
 * New: declared compatibility with High-Performance Order Storage (HPOS).
@@ -138,6 +141,9 @@ Yes. Clearqo has a REST API and signed webhooks for any website, app or bot. See
 * First release.
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Clearer order notes when a payment is less than the order total.
 
 = 1.2.0 =
 Adds Checkout block support and HPOS compatibility, plus extra protection against duplicate confirmations.
