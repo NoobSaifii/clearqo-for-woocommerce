@@ -155,7 +155,7 @@ The payment is flagged as **Needs review** in your Clearqo dashboard and the ord
 <details>
 <summary><b>Is the plugin free?</b></summary>
 
-Yes. The plugin is free and open source (GPL). Creating a Clearqo account is free. Clearqo charges a small fee per confirmed payment, or a flat monthly plan, from a prepaid balance. See [pricing](https://clearqo.com/#pricing).
+Yes. The plugin is free and open source (GPL). Creating a Clearqo account is free. Clearqo charges a small fee per confirmed payment from a prepaid balance, with no monthly fees. See [pricing](https://clearqo.com/#pricing).
 </details>
 
 <details>

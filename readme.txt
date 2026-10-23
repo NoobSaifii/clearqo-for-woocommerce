@@ -51,7 +51,7 @@ No middleman holds your funds, there are no payout delays, and you never have to
 = Requirements =
 
 * WooCommerce 8.0 or newer
-* A Clearqo account (free to create; usage is billed per payment or with a monthly plan from a prepaid balance – see [pricing](https://clearqo.com/#pricing))
+* A Clearqo account (free to create; a small fee per confirmed payment is paid from a prepaid balance, with no monthly fees – see [pricing](https://clearqo.com/#pricing))
 * A Binance account
 
 = External services =
@@ -107,7 +107,7 @@ Yes. It works with the block-based Cart & Checkout and the classic shortcode che
 
 = How much does it cost? =
 
-Creating an account is free. You pay a small fee per confirmed payment or choose a monthly plan, both from a prepaid balance. See [clearqo.com/#pricing](https://clearqo.com/#pricing).
+Creating an account is free, and new accounts get free test credit when they connect Binance. You pay a small fee per confirmed payment from a prepaid balance. There are no monthly fees. See [clearqo.com/#pricing](https://clearqo.com/#pricing).
 
 = Can I use Clearqo without WooCommerce? =
 
